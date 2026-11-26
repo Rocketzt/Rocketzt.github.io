@@ -1,0 +1,2 @@
+Wings Up Sim: the FTC 24255 Wings Up fork of DSIM (https://github.com/genius0412/dsim), used for noncommercial practice.
+See LICENSE.txt and NOTICE.txt. Not affiliated with FIRST, RTX or the DSIM project.

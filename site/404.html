@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Wings Up Sim</title>
+    <meta name="description" content="FTC 24255 Wings Up practice simulator for the BIOBUZZ season: drive our robot, shoot and score." />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%2320262c%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20font-size%3D%2230%22%20font-family%3D%22sans-serif%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%239ad0b0%22%3EWU%3C%2Ftext%3E%3C%2Fsvg%3E" />
+    <meta name="theme-color" content="#20262c" />
+    <script>
+      (function () {
+        var p = 'system';
+        try {
+          p = localStorage.getItem('decodesim.theme') || 'system';
+        } catch (e) {}
+        if (p !== 'light' && p !== 'dark') {
+          p = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        }
+        document.documentElement.dataset.theme = p;
+      })();
+    </script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DJOkJD-R.css">
+    <script type="module" crossorigin src="/assets/index-D6IjJYqm.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div id="seo-home">
+        <p class="sh-eyebrow">FIRST Tech Challenge</p>
+        <h1>DSIM</h1>
+        <!-- THIS IS THE LOADING SCREEN. React clears #root on mount, so everything
+             here is what a visitor looks at while the bundle parses and the Rapier
+             WASM decodes (main.tsx blocks the first render on both) — and what a
+             non-JS client sees forever. The presenting sponsor belongs on it for
+             exactly that reason. Keep it in step with `SponsorPresents`. -->
+        <!-- ⚠️ THE HREF IS UTM-TAGGED BY HAND, and it has to be: this markup ships
+             before any bundle runs, so it cannot call `sponsorLink('loading')` —
+             but an untagged link is one Offset's own analytics files under "direct"
+             and cannot attribute to us at all. The tag below IS `sponsorLink('loading')`
+             spelled out, and the smoke lane compares the two strings so they cannot
+             drift. It fires no event, for the same reason: there is no analytics
+             script on the page yet. -->
+        <!-- ⚠️ `target="_blank"` IS LOAD-BEARING, NOT POLISH. dsim also runs as a Discord
+             Activity, inside a cross-origin iframe at `<app-id>.discordsays.com` whose CSP
+             allows exactly two hosts (the two URL mappings). A bare anchor is a SAME-FRAME
+             navigation: a participant who taps this — and it is on screen for the WHOLE cold
+             boot, which on a phone with the BIOBUZZ default is the longest look anyone gets
+             at this screen — navigates the activity frame itself at a host the embed may not
+             load, and there is no back button in the embed to undo it. The three external
+             links on this page therefore ALL open in a new context, the way every external
+             link in the React tree already does (`Sponsor.tsx`, `HomeMenu.tsx`). This changes
+             only HOW the link opens — the placement and its hand-written UTM tag below are a
+             contracted obligation (docs/area/sponsor.md) and are untouched. -->
+        <p class="sh-presents">
+          Presented by
+          <a
+            href="https://offsetrobotics.com/?utm_source=dsim&amp;utm_medium=loading&amp;utm_campaign=biobuzz-2026"
+            target="_blank"
+            rel="noreferrer"
+            >Offset Robotics</a
+          >
+        </p>
+        <!-- The two games, as real links. Each is its own indexable page with its
+             own title and description (see applyRouteMeta), and these are the only
+             thing pointing a crawler at them. -->
+        <nav class="sh-games" aria-label="Game">
+          <a class="on" href="/decode">DECODE</a>
+          <a href="/chain">Chain Reaction</a>
+          <a href="/biobuzz">BIOBUZZ</a>
+        </nav>
+        <nav class="sh-menu" aria-label="Main">
+          <a class="sh-btn primary" href="/decode/modes"><b>Play</b><span>Pick a game mode</span></a>
+          <a class="sh-btn" href="/decode/configure/robot"
+            ><b>Configure</b><span>Robot &amp; match setup</span></a
+          >
+          <a class="sh-btn" href="/decode/records"><b>Records</b><span>Leaderboard &amp; career</span></a>
+          <a class="sh-btn" href="/decode/download"><b>Download</b><span>Desktop app</span></a>
+        </nav>
+        <p class="sh-foot">
+          <a href="/decode/changelogs">Changes</a>
+          <a href="/decode/contributors">Contributors</a>
+          <!-- external, so same rule as the sponsor link above: never a same-frame
+               navigation, because this markup is also the Discord Activity's boot screen -->
+          <a href="https://github.com/genius0412/dsim" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://discord.gg/YB4tXnx7Pj" target="_blank" rel="noreferrer">Discord</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
